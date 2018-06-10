@@ -37,11 +37,12 @@ var fetchRepoData = function fetchRepoData(repoElement) {
        * @type {string}
        */
       var tableData = updatedRepos.reduce(function (accumulator, repo) {
-        accumulator += "\n      <tr>\n        <td>" + repo.name + "</td>\n        <td>" + repo.description + "</td>\n        <td>" + new Date(repo.updated_at).toLocaleString() + "</td>\n        <td><a href=\"" + repo.html_url + "/archive/master.zip\">Download</a></td>\n      </tr>";
+        accumulator += "\n      <tr>\n        <td>" + repo.name + "</td>\n        <td>" + repo.description + "</td>\n        <td>" + new Date(repo.updated_at).toLocaleString() + "</td>\n        <td><a class=\"md-btn\" href=\"" + repo.html_url + "/archive/master.zip\">Download</a></td>\n      </tr>";
         return accumulator;
       }, "");
 
       var repoDiv = document.createElement("div");
+      repoDiv.classList.add("repo");
       repoDiv.innerHTML = "<h1>" + userName + "</h1>\n  <table>\n    <thead>\n      <tr>\n        <th>Repository name</th>\n        <th>Repository description</th>\n        <th>Repository updated at</th>\n        <th>Download link</th>\n      </tr>\n    </thead>\n    <tbody>" + tableData + "\n    </tbody>\n  </table>\n  ";
       var parentNode = repoElement.parentNode;
       parentNode.replaceChild(repoDiv, repoElement);

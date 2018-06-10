@@ -42,12 +42,15 @@ const fetchRepoData = repoElement => {
         <td>${repo.name}</td>
         <td>${repo.description}</td>
         <td>${new Date(repo.updated_at).toLocaleString()}</td>
-        <td><a href="${repo.html_url}/archive/master.zip">Download</a></td>
+        <td><a class="md-btn" href="${
+          repo.html_url
+        }/archive/master.zip">Download</a></td>
       </tr>`;
             return accumulator;
           }, "");
 
           const repoDiv = document.createElement("div");
+          repoDiv.classList.add("repo");
           repoDiv.innerHTML = `<h1>${userName}</h1>
   <table>
     <thead>
