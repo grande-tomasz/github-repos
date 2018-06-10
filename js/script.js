@@ -12,12 +12,11 @@ const fetchRepoData = repoElement => {
       if (response.ok) {
         return response.json();
       } else {
-        throw "No user in GitHub with specified login";
+        throw `No user in GitHub with specified login: ${user}`;
       }
     })
     .then(resJson => {
       const userName = resJson.name ? resJson.name : resJson.login;
-      // return fetch from repos API to chain promise
       fetch(`${apiUrl}/users/${user}/repos`)
         .then(response => {
           if (response.ok) {
