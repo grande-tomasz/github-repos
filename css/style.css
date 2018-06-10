@@ -28,4 +28,34 @@ body {
   margin: 1.5rem;
 }
 
+.repo table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  background-color: #FFFFFF;
+}
+
+.repo table tr {
+  transition: all 0.3s ease;
+}
+
+.repo table tr th,
+.repo table tr td {
+  text-align: left;
+  padding: 1.6rem;
+  vertical-align: middle;
+  border-top: 0;
+}
+
+.repo table tr th {
+  font-weight: 400;
+  color: #757575;
+  vertical-align: bottom;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.repo table tr:hover td {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
 /*# sourceMappingURL=style.css.map */
