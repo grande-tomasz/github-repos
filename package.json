@@ -4,7 +4,10 @@
   "description": "Script to convert repos HTML tag into div element with the specified data about user repositories",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel": "babel js/script.js --out-file js/script.compiled.js",
+    "uglifyjs": "uglifyjs js/script.compiled.js -m -c -o build/script.js",
+    "rimraf": "rimraf build/*",
+    "build": "npm run rimraf && npm run babel && npm run uglifyjs"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,10 @@
   },
   "homepage": "https://github.com/grande-tomasz/github-repos#readme",
   "devDependencies": {
-    "jsdoc": "^3.5.5"
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jsdoc": "^3.5.5",
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.4.0"
   }
 }
