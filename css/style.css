@@ -17,4 +17,15 @@ body {
   font-family: "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.repo {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.repo h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 1.5rem;
+}
+
 /*# sourceMappingURL=style.css.map */
