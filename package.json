@@ -9,8 +9,9 @@
     "sass": "node-sass --source-map true --output-style expanded --indent-type spaces --indent-width 2 -o css/ scss/",
     "autoprefixer": "postcss -u autoprefixer -r css/*.css",
     "cleancss": "cleancss --skip-rebase -o build/style.css css/style.css",
+    "jsdoc": "jsdoc js/script.js",
     "rimraf": "rimraf css/* build/*",
-    "build": "npm run rimraf && npm run sass && npm run autoprefixer && npm run cleancss && npm run babel && npm run uglifyjs"
+    "build": "npm run rimraf && npm run sass && npm run autoprefixer && npm run cleancss && npm run babel && npm run uglifyjs && npm run jsdoc"
   },
   "repository": {
     "type": "git",
