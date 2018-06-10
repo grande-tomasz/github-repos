@@ -24,40 +24,59 @@ const load = () => {
           .then(resJson => {
             const userName = resJson.name ? resJson.name : resJson.login;
             // return fetch from repos API to chain promise
-            return fetch(`${apiUrl}/users/${user}/repos`);
-          })
-          .then(response => {
-            if (response.ok) {
-              return response.json();
-            }
-          })
-          .then(resJson => {
-            let updatedRepos = [];
-            if (update !== undefined) {
-              // when repo date has been specified get only repos after that date
-              updatedRepos = resJson.filter(repo => repo.updated_at >= update);
-            } else {
-              // when repo date has not been specified get all repos
-              updatedRepos = resJson;
-            }
-            /**
-             * Generated tbody inner HTML based on the user repositories data
-             * @type {string}
-             */
-            const tableData = updatedRepos.reduce((accumulator, repo) => {
-              accumulator += `
+            fetch(`${apiUrl}/users/${user}/repos`)
+              .then(response => {
+                if (response.ok) {
+                  return response.json();
+                }
+              })
+              .then(resJson => {
+                let updatedRepos = [];
+                if (update !== undefined) {
+                  // when repo date has been specified get only repos after that date
+                  updatedRepos = resJson.filter(
+                    repo => repo.updated_at >= update
+                  );
+                } else {
+                  // when repo date has not been specified get all repos
+                  updatedRepos = resJson;
+                }
+                /**
+                 * Generated tbody inner HTML based on the user repositories data
+                 * @type {string}
+                 */
+                const tableData = updatedRepos.reduce((accumulator, repo) => {
+                  accumulator += `
     <tr>
       <td>${repo.name}</td>
       <td>${repo.description}</td>
       <td>${new Date(repo.updated_at).toLocaleString()}</td>
-      <td><a class="md-btn" href="${
-        repo.html_url
-      }/archive/master.zip">Download</a></td>
+      <td><a href="${repo.html_url}/archive/master.zip">Download</a></td>
     </tr>`;
-              return accumulator;
-            }, "");
-            console.log("tableData", tableData);
+                  return accumulator;
+                }, "");
+
+                const repoDiv = document.createElement("div");
+                repoDiv.innerHTML = `<h1>${userName}</h1>
+  <table>
+  <thead>
+    <tr>
+      <th>Repository name</th>
+      <th>Repository description</th>
+      <th>Repository updated at</th>
+      <th>Download link</th>
+    </tr>
+  </thead>
+  <tbody>${tableData}
+  </tbody>
+  </table>
+  `;
+                console.log(repoDiv);
+                const parentNode = repoElement.parentNode;
+                parentNode.replaceChild(repoDiv, repoElement);
+              });
           })
+
           // log when there is no GitHub user with the specified login
           .catch(error => console.log(error.message ? error.message : error));
       } else {
