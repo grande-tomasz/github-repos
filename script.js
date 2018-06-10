@@ -32,7 +32,15 @@ const load = () => {
             }
           })
           .then(resJson => {
-            console.log(resJson);
+            let updatedRepos = [];
+            if (update !== undefined) {
+              // when repo date has been specified get only repos after that date
+              updatedRepos = resJson.filter(repo => repo.updated_at >= update);
+            } else {
+              // when repo date has not been specified get all repos
+              updatedRepos = resJson;
+            }
+            console.log(updatedRepos);
           })
           // log when there is no GitHub user with the specified login
           .catch(error => console.log(error.message ? error.message : error));
