@@ -25,62 +25,7 @@ body {
     font-weight: 500;
     margin: 1.5rem;
   }
-
-  table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 2rem;
-    background-color: #FFFFFF;
-
-    tr {
-      transition: all 0.3s ease;
-
-      th,
-      td {
-        text-align: left;
-        padding: 1.6rem;
-        vertical-align: middle;
-        border-top: 0;
-      }
-
-      th {
-        font-weight: 400;
-        color: #757575;
-        vertical-align: bottom;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-      }
-
-      &:hover td {
-        background-color: rgba(0, 0, 0, 0.12);
-      }
-    }
-  }
 }
 
-$md-btn-bg-color: #E91E63;
-
-.md-btn {
-  display: inline-block;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
-  border: none;
-  outline: none;
-  padding: 0 1.5rem;
-  height: 35px;
-  line-height: 35px;
-  background-color: $md-btn-bg-color;
-  color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-  letter-spacing: 0.8px;
-  vertical-align: middle;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: all 0.3s ease-out;
-}
-.md-btn:hover { 
-  box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225); 
-  background-color: lighten($md-btn-bg-color, 10%); 
-  cursor: pointer;
-}
+@import "table";
+@import "button";
