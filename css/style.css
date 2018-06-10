@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #EEEEEE;
+  color: #646360;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Roboto", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */
