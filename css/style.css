@@ -58,4 +58,31 @@ body {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
+.md-btn {
+  display: inline-block;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+  border: none;
+  outline: none;
+  padding: 0 1.5rem;
+  height: 35px;
+  line-height: 35px;
+  background-color: #E91E63;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.3s ease-out;
+}
+
+.md-btn:hover {
+  box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
+  background-color: #ee4c83;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=style.css.map */
