@@ -10,7 +10,23 @@ const load = () => {
     try {
       if (repoElement.dataset.user) {
         const user = repoElement.dataset.user;
-        console.log(user);
+        const update = repoElement.dataset.update;
+
+        const apiUrl = "https://api.github.com";
+        fetch(`${apiUrl}/users/${user}`)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw "No user in GitHub with specified login";
+            }
+          })
+          .then(resJson => {
+            const userName = resJson.name ? resJson.name : resJson.login;
+            console.log(userName);
+          })
+          // log when there is no GitHub user with the specified login
+          .catch(error => console.log(error.message ? error.message : error));
       } else {
         throw "No user data specified in repos element";
       }
@@ -20,8 +36,6 @@ const load = () => {
       return;
     }
     // when there is no update data then it gets undefined
-    const update = repoElement.dataset.update;
-    console.log(update);
   });
 };
 window.onload = load;
