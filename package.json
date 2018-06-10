@@ -7,8 +7,10 @@
     "babel": "babel js/script.js --out-file js/script.compiled.js",
     "uglifyjs": "uglifyjs js/script.compiled.js -m -c -o build/script.js",
     "sass": "node-sass --source-map true --output-style expanded --indent-type spaces --indent-width 2 -o css/ scss/",
-    "rimraf": "rimraf build/*",
-    "build": "npm run rimraf && npm run babel && npm run uglifyjs"
+    "autoprefixer": "postcss -u autoprefixer -r css/*.css",
+    "cleancss": "cleancss --skip-rebase -o build/style.css css/style.css",
+    "rimraf": "rimraf css/* build/*",
+    "build": "npm run rimraf && npm run sass && npm run autoprefixer && npm run cleancss && npm run babel && npm run uglifyjs"
   },
   "repository": {
     "type": "git",
@@ -27,10 +29,13 @@
   },
   "homepage": "https://github.com/grande-tomasz/github-repos#readme",
   "devDependencies": {
+    "autoprefixer": "^8.6.2",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "clean-css-cli": "^4.1.11",
     "jsdoc": "^3.5.5",
     "node-sass": "^4.9.0",
+    "postcss-cli": "^5.0.0",
     "rimraf": "^2.6.2",
     "uglify-js": "^3.4.0"
   }
