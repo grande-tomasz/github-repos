@@ -1,0 +1,20 @@
+{
+  "name": "github-repos",
+  "version": "1.0.0",
+  "description": "Script to convert repos HTML tag into div element with the specified data about user repositories",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grande-tomasz/github-repos.git"
+  },
+  "keywords": ["GitHub", "ES6", "Fetch API", "Material Design"],
+  "author": "Tomasz Grande",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grande-tomasz/github-repos/issues"
+  },
+  "homepage": "https://github.com/grande-tomasz/github-repos#readme"
+}
