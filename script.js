@@ -23,7 +23,16 @@ const load = () => {
           })
           .then(resJson => {
             const userName = resJson.name ? resJson.name : resJson.login;
-            console.log(userName);
+            // return fetch from repos API to chain promise
+            return fetch(`${apiUrl}/users/${user}/repos`);
+          })
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            }
+          })
+          .then(resJson => {
+            console.log(resJson);
           })
           // log when there is no GitHub user with the specified login
           .catch(error => console.log(error.message ? error.message : error));
