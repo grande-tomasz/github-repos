@@ -40,7 +40,23 @@ const load = () => {
               // when repo date has not been specified get all repos
               updatedRepos = resJson;
             }
-            console.log(updatedRepos);
+            /**
+             * Generated tbody inner HTML based on the user repositories data
+             * @type {string}
+             */
+            const tableData = updatedRepos.reduce((accumulator, repo) => {
+              accumulator += `
+    <tr>
+      <td>${repo.name}</td>
+      <td>${repo.description}</td>
+      <td>${new Date(repo.updated_at).toLocaleString()}</td>
+      <td><a class="md-btn" href="${
+        repo.html_url
+      }/archive/master.zip">Download</a></td>
+    </tr>`;
+              return accumulator;
+            }, "");
+            console.log("tableData", tableData);
           })
           // log when there is no GitHub user with the specified login
           .catch(error => console.log(error.message ? error.message : error));
