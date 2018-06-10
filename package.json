@@ -10,11 +10,19 @@
     "type": "git",
     "url": "git+https://github.com/grande-tomasz/github-repos.git"
   },
-  "keywords": ["GitHub", "ES6", "Fetch API", "Material Design"],
+  "keywords": [
+    "GitHub",
+    "ES6",
+    "Fetch API",
+    "Material Design"
+  ],
   "author": "Tomasz Grande",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/grande-tomasz/github-repos/issues"
   },
-  "homepage": "https://github.com/grande-tomasz/github-repos#readme"
+  "homepage": "https://github.com/grande-tomasz/github-repos#readme",
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
+  }
 }
